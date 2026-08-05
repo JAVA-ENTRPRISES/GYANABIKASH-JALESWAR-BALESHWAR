@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Modern School Header</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: #A7C84A;
+        left: 0;
+        bottom: -5px;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-link.active {
+    color: #3B3EA8; 
+    font-weight: 700;
+    border-bottom: 2px solid #A7C84A;
+    padding-bottom: 4px;
+  }
+    </style>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- 🔷 TOP BAR -->
+    <div class="bg-gradient-to-r from-[#3B3EA8] to-[#A7C84A] text-white text-sm">
+      <div class="max-w-7xl mx-auto lg:flex lg:justify-between lg:px-6 py-2">
+        <div>📞 +91 8917651807</div>
+        <div>📧 gyanabikashitc@gmail.com</div>
+      </div>
+    </div>
+
+    <!-- 🔷 HEADER -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+      <div
+        class="max-w-8xl mx-auto px-8 py-2 flex justify-between items-center"
+      >
+        <!-- LOGO + NAME -->
+        <div class="flex items-center gap-3">
+          <img
+            src="images/logo.png"
+            class="h-16 w-16"
+          />
+          <div class="lg:block hidden">
+            <h1 class="text-xl font-bold text-[#3B3EA8]">Gyanabikash English Medium School</h1>
+            <p class="text-xs text-gray-500">Inspiring Young Minds</p>
+          </div>
+        </div>
+
+        <!-- MENU -->
+        <nav class="hidden md:flex gap-6 font-semibold text-gray-700">
+          <a href="index.html" class="nav-link hover:text-blue-900">Home</a>
+          <a href="about.html" class="nav-link hover:text-blue-900">About</a>
+          <a href="admission.html" class="nav-link hover:text-blue-900"
+            >Admission</a
+          >
+          <a href="academic.html" class="nav-link hover:text-blue-900"
+            >Academics</a
+          >
+          <a href="facility.html" class="nav-link hover:text-blue-900"
+            >Facilities</a
+          >
+          <a href="mandatory-disclosure.html" class="nav-link hover:text-blue-900"
+            >Mandatory Disclosure</a
+          >
+          <a href="gallery.html" class="nav-link hover:text-blue-900"
+            >Gallery</a
+          >
+          <a href="contact.html" class="nav-link hover:text-blue-900"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- CTA BUTTON -->
+        <div class="hidden md:block">
+          <a
+            href="admission.html"
+            class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-5 py-2 rounded-full shadow-md hover:scale-105 transition"
+          >
+            Apply Now
+          </a>
+        </div>
+
+        <!-- MOBILE BUTTON -->
+        <button onclick="openMenu()" class="md:hidden text-3xl text-blue-900">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- 🔷 MOBILE MENU -->
+    <div
+      id="mobileMenu"
+      class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition duration-300 z-50 p-6"
+    >
+      <div
+        class="text-right text-3xl cursor-pointer mb-6"
+        onclick="closeMenu()"
+      >
+        ×
+      </div>
+
+      <nav class="flex flex-col gap-5 font-semibold text-gray-700">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="admission.html">Admission</a>
+        <a href="academic.html">Academics</a>
+        <a href="facility.html">Facilities</a>
+        <a href="mandatory-disclosure.html">Mandatory Disclosure</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+
+        <a
+          href="admission.html"
+          class="mt-4 bg-green-600 text-white text-center py-2 rounded"
+        >
+          Apply Now
+        </a>
+      </nav>
+    </div>
+
+    <!-- OVERLAY -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/40 hidden"
+      onclick="closeMenu()"
+    ></div>
+  </body>
+</html>

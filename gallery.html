@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Gallery | Gyanabikash English Medium School</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-50">
+
+<div id="header"></div>
+
+<!-- 🔥 HERO -->
+<section class="relative h-[350px] flex items-center justify-center text-center text-white">
+
+  <img src="images/school.jpg" class="absolute w-full h-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-green-600/70"></div>
+
+  <div class="relative px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">
+      Our School Gallery
+    </h1>
+    <p class="text-lg max-w-2xl mx-auto">
+      Capturing moments of joy, learning, and unforgettable experiences
+    </p>
+  </div>
+
+</section>
+
+<!-- 🔥 FILTER BUTTONS -->
+<section class="py-10 bg-white text-center">
+  <div class="flex flex-wrap justify-center gap-4">
+
+    <button onclick="filterGallery('all')" class="px-5 py-2 bg-blue-900 text-white rounded-full">All</button>
+    <button onclick="filterGallery('event')" class="px-5 py-2 bg-gray-200 rounded-full">Events</button>
+    <button onclick="filterGallery('activity')" class="px-5 py-2 bg-gray-200 rounded-full">Activities</button>
+    <button onclick="filterGallery('campus')" class="px-5 py-2 bg-gray-200 rounded-full">Campus</button>
+
+  </div>
+</section>
+
+<!-- 🔥 GALLERY GRID -->
+<section class="pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div id="galleryGrid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <!-- ITEM -->
+      <div class="gallery-item event group relative overflow-hidden rounded-2xl">
+        <img src="images/annual.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+          <h3 class="text-lg font-bold">Annual Day</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item activity group relative overflow-hidden rounded-2xl">
+        <img src="images/act.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+          Classroom Activities
+        </div>
+      </div>
+
+      <div class="gallery-item event group relative overflow-hidden rounded-2xl">
+        <img src="images/sport.webp" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+          Sports Day
+        </div>
+      </div>
+
+      <div class="gallery-item activity group relative overflow-hidden rounded-2xl">
+        <img src="images/science.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+          Science Exhibition
+        </div>
+      </div>
+
+      <div class="gallery-item event group relative overflow-hidden rounded-2xl">
+        <img src="images/cul.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+          Cultural Program
+        </div>
+      </div>
+
+      <div class="gallery-item campus group relative overflow-hidden rounded-2xl">
+        <img src="images/cam.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+          Campus View
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔥 LIGHTBOX MODAL -->
+<div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+  <span onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl cursor-pointer">×</span>
+  <img id="lightboxImg" class="max-w-3xl w-full rounded-lg shadow-lg">
+</div>
+
+<!-- 🔥 SCRIPT -->
+<script>
+function filterGallery(category) {
+  const items = document.querySelectorAll(".gallery-item");
+
+  items.forEach(item => {
+    if (category === "all" || item.classList.contains(category)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+// LIGHTBOX
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.onclick = () => {
+    document.getElementById("lightbox").classList.remove("hidden");
+    document.getElementById("lightboxImg").src = img.src;
+  };
+});
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.add("hidden");
+}
+</script>
+
+<div id="footer"></div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
